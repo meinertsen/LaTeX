@@ -1,0 +1,74 @@
+\title{Frederik Meinertsen CV}
+
+\documentclass[a4paper]{Meinertsen}
+
+\begin{document}
+
+\sidecaseone{
+\textit{\color{grey}{{"""}Python: how Abstract Base Classes teach and learn{"""} }}\newline\newline
+\textbf{\color{mainblue}{from}} abc \textbf{\color{mainblue}{import}} ABCMeta, \textbackslash\newline
+abstractmethod\newline\newline
+\textbf{\color{mainblue}{class}} \textbf{\color{black}{teach}}(metaclass=ABCMeta):\newline
+\emph{\color{brown}{\hspace{2ex}@abstractmethod}}\newline
+  \textbf{\color{mainblue}{\hspace{2ex}def}} \textbf{\color{black}{read}}(self, maxbytes=-1):\newline
+\textbf{\color{mainblue}{\hspace{6ex}pass}}\newline
+\emph{\color{brown}{\hspace{2ex}@abstractmethod}}\newline
+\textbf{\color{mainblue}{\hspace{2ex}def}} write(self, data):\newline
+\textbf{\color{mainblue}{\hspace{6ex}pass}}\newline\newline
+\textbf{\color{mainblue}{class}}
+\textbf{\color{black}{learn}}(teach):\newline
+\textbf{\color{mainblue}{\hspace{2ex}def}} \textbf{\color{black}{read}}(self, maxbytes=-1):\newline
+{\color{black}{\hspace{6ex}...}}\newline
+\textbf{\color{mainblue}{\hspace{2ex}def}} write(self, data):\newline
+{\color{black}{\hspace{6ex}...}}\newline\newline
+\textbf{\color{mainblue}{import}} io\newline
+learn.register(io.IOBase)\newline
+foo = \textbf{\color{mainblue}{open}}('bar.txt')\newline
+\textbf{\color{mainblue}{isinstance}}(foo, teach)\newline
+{{>}}{{>}}{{>}} True\newline
+\textbf{\color{mainblue}{isinstance}}(foo, learn)\newline
+{{>}}{{>}}{{>}} True}
+
+\sidecasetwo{I have my own Power BI account and am a big fan of infographics. I feel pretty comfortable with any pivot-like application. No one though seems to have efficiently solved the task of displaying multiple timeseries with different frequencies effortlessly in the same chart.
+}
+\sidecasethree{I have two proprietary Azure licenses which I have used to create a small development environment with App Services, Cognitive Services, Blob Storage, Event Hub, Stream Analytics feeding data to projects in Azure ML Studio
+}
+\sidecasefour{I use \texttt{bash}/\texttt{PowerShell} for scripts, \texttt{curl} for data transfer, \texttt{conda} for virtual environments and package management, \texttt{brew}/\texttt{MacPorts}/\texttt{chocolatey} for package management, Atom with Git for python, R (using Jupyter's IRkernel), Eclipse for Scala, Visual Studio for C\#, \texttt{MyLittleAdmin} for MS SQL, \texttt{phpMyAdmin} for MySQL
+}
+
+\makeprofile % Print the sidebar
+
+
+\section{Preferred languages}
+
+\begin{cvlatex}
+	\cvlatexitem{{python}}{Metaprogramming, inheritance and concurrency}{}
+    {\small{\textbf{I have utilized python to enhance model selection with \texttt{Sci-Kit Learn} through disassembling of source code through with my own forked versions of \texttt{dis} (for errorhandling and byte-code dictionary) and \texttt{inspect} . This enables me to recursively extract parameters e.g. \begin{alltt}['linear', 'poly', 'rbf', 'sigmoid', 'precomputed']\end{alltt} and their hyperparameters e.g. \texttt{gamma} for \texttt{'rbf'} from class instances by working through ranked inheritance from the method resolution order and "meta-mro" (abstract meta classes). The idea is that it should be possible to "brute force" model testing before applying an exhaustive GridSearchCV on one specific model. }}}
+	\cvlatexitem{{R}}{semantics <- c{(}'My experience: \emph{do not} \texttt{apply()} to data frames'{)} }{}
+    {\small{\textbf{I have worked on a preprocessing library to address some of the issues  described by Schafer \& Graham (2002) in order to allow for more flexible imputations than replacing missing data with the feature mean such as ratio imputation, which is currently unavailable in popular data analysis libraries like HMisc. This is an extension of the notion that an optimized model selection process starts in the preprocessing phase before normalizing features and deciding to proceed with feature selection and/or dimensionality reduction. }}}
+	\cvlatexitem{{SQL}}{\texttt{SELECT [MYSQL], [TSQL] INTO skills FROM experience}}{}
+    {\small{\textbf{I have my own hosted SQL servers, which I have used to build a hierarchical databases of global and local industry classification standards. The purpose was to see if it would be possible to create an umbrella classification database which could be used on public XBRL data. Statistics Denmark and the Danish Business Authority e.g. produce classification data on a depth level 6 compared to depth level 4 for NAICS (North America), which would enable a researcher to perform detailed geospatial financial analysis. Imagine Experian  services for free.}}}
+
+	\cvlatexitem{{VBA}}{Testing the limits}{}
+    {\small{\textbf{I discovered the bug in Excel that causes array functions to miscalculate when exceeding $2^{15}$ items, which should only be limited by memory and not by Worksheet arrays. VBA has been my essential tool for building valuation models. I also created a tokenizer when I indexed my Outlook emails because company storage policies forced everyone to archive beyond a certain threshold.}}}
+	\cvlatexitem{{C\#}}{Building intelligent apps and services}{}
+    {\small{\textbf{I have my own Visual Studio license and have used C\# when creating solutions for bond valuation models and recently to build a real-time event processing service that could analyze sentiment in text data using Azure Stream Analytics. The latter included calling an API, creating search/formatting/analyze Methods, event handlers and publication of the app to Azure.}}}
+    	\cvlatexitem{{SAS}}{ETL/ELT}{}
+    {\small{\textbf{I have used SAS in an academic context and at my assistant position at the Danish Health Authority (Sundhedsstyrelsen) to write \texttt{PROC}'s and perform data analysis on healthcare statistics. This includes the wrangling procedures, \texttt{ODS} enhancing and the most frequently used statistical procedures. I have later switched to \emph{R} due to it being open source.}}}
+\end{cvlatex}
+
+\section{Other topics}
+
+\begin{cvlatex}
+	\cvlatexitem{NLP}{Working with text}{}
+    {\small{\textbf{I have added some functionality for a sentence tokenizer, not really a decorator, but more of a generalized way to treat whitespace in a specific situation which frequently occurs when lists and nested lists occur in a document. To separate sentences without punctuation and double newline is currently not supported in \texttt{nltk} and this feature would be great as an option in the future versions. }}}
+    \cvlatexitem{API's}{Getting data}{}
+    {\small{\textbf{I can build a web scraper, e.g. with \texttt{bs4}, but for services that provide an API, I can automate the process. This could e.g. be  fiscal reports in XBRL from SEC or hourly weather data in JSON from Wunderground, which I actually engineered for a \emph{Kaggle} competition as I believed the hourly data would provide better prediction relative to daily data.}}}
+	\cvlatexitem{{GitHub}}{Just some fun stuff}{}
+    {\small{\textbf{I have a repository, where I upload pieces of codes, which are solutions to problems that I haven't been able to find an answer to elsewhere. Examples include the aforementioned tokenizer improvement, how to open and subtitle .mp4 from a python console, how to solve Google software engineering interviews with list comprehensions and an early version of a preprocessing iterator.}}}
+\end{cvlatex}
+
+
+
+
+\end{document}
